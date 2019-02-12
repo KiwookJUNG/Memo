@@ -30,28 +30,45 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글의 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xs-0O-5YM">
-                                            <rect key="frame" x="16" y="6" width="234" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글의 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xs-0O-5YM">
+                                            <rect key="frame" x="26" y="11" width="232" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="5wK-AS-H0D"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1993-07-09 18:33:21" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHl-60-Srv">
-                                            <rect key="frame" x="251" y="22" width="82" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1993-07-09 18:33:21" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHl-60-Srv">
+                                            <rect key="frame" x="268" y="21" width="65" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="fcY-MK-eeO"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글의 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc2-Rz-oxu">
-                                            <rect key="frame" x="16" y="44" width="242" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글의 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc2-Rz-oxu">
+                                            <rect key="frame" x="26" y="37" width="297" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="wWf-uk-fY3"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mc2-Rz-oxu" firstAttribute="top" secondItem="9Xs-0O-5YM" secondAttribute="bottom" constant="5" id="Acl-hB-AkL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HHl-60-Srv" secondAttribute="trailing" id="G7o-m2-Yq1"/>
+                                        <constraint firstItem="9Xs-0O-5YM" firstAttribute="leading" secondItem="SeN-ZS-pqd" secondAttribute="leadingMargin" constant="10" id="aA4-E0-K7C"/>
+                                        <constraint firstItem="HHl-60-Srv" firstAttribute="leading" secondItem="9Xs-0O-5YM" secondAttribute="trailing" constant="10" id="fw9-ua-Rbx"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HHl-60-Srv" secondAttribute="bottom" constant="10" id="mcX-aL-Qva"/>
+                                        <constraint firstItem="HHl-60-Srv" firstAttribute="top" secondItem="SeN-ZS-pqd" secondAttribute="topMargin" constant="10" id="npf-FO-wff"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mc2-Rz-oxu" secondAttribute="trailing" constant="10" id="sDC-TW-QKW"/>
+                                        <constraint firstItem="mc2-Rz-oxu" firstAttribute="leading" secondItem="SeN-ZS-pqd" secondAttribute="leadingMargin" constant="10" id="v62-hC-c1J"/>
+                                        <constraint firstItem="9Xs-0O-5YM" firstAttribute="top" secondItem="SeN-ZS-pqd" secondAttribute="topMargin" id="z6X-pf-9lD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="memoCellWithImage" rowHeight="80" id="BNw-Dj-L8O">
@@ -61,32 +78,54 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tIZ-EI-ubr">
-                                            <rect key="frame" x="16" y="5" width="56" height="69"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIZ-EI-ubr">
+                                            <rect key="frame" x="16" y="11" width="47" height="58"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="tIZ-EI-ubr" secondAttribute="height" multiplier="56:69" id="jyJ-1V-tUG"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글의 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIk-tk-uik">
-                                            <rect key="frame" x="80" y="5" width="180" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글의 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIk-tk-uik">
+                                            <rect key="frame" x="73" y="11" width="185" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="U2s-FW-XrC"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1993-07-09 18:33:21" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-GE-6s6">
-                                            <rect key="frame" x="251" y="22" width="82" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1993-07-09 18:33:21" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo1-GE-6s6">
+                                            <rect key="frame" x="268" y="21" width="65" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="WkK-2b-i8l"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글의 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv5-cl-RP0">
-                                            <rect key="frame" x="80" y="45" width="185" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="글의 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv5-cl-RP0">
+                                            <rect key="frame" x="73" y="37" width="250" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="4Ex-hI-hQL"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FIk-tk-uik" firstAttribute="top" secondItem="zA3-jP-YPC" secondAttribute="topMargin" id="1Vu-CD-zPd"/>
+                                        <constraint firstItem="FIk-tk-uik" firstAttribute="leading" secondItem="tIZ-EI-ubr" secondAttribute="trailing" constant="10" id="KVk-nO-jj6"/>
+                                        <constraint firstItem="tIZ-EI-ubr" firstAttribute="leading" secondItem="zA3-jP-YPC" secondAttribute="leadingMargin" id="Nxl-jd-HlI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xv5-cl-RP0" secondAttribute="trailing" constant="10" id="Olw-wa-sog"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tIZ-EI-ubr" secondAttribute="bottom" id="QVD-h6-orf"/>
+                                        <constraint firstItem="xv5-cl-RP0" firstAttribute="leading" secondItem="tIZ-EI-ubr" secondAttribute="trailing" constant="10" id="YmV-Zq-xd5"/>
+                                        <constraint firstItem="tIZ-EI-ubr" firstAttribute="top" secondItem="zA3-jP-YPC" secondAttribute="topMargin" id="ZEb-QT-R9V"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Qo1-GE-6s6" secondAttribute="bottom" constant="10" id="ahn-8F-2Sq"/>
+                                        <constraint firstItem="xv5-cl-RP0" firstAttribute="top" secondItem="FIk-tk-uik" secondAttribute="bottom" constant="5" id="b08-UF-zVg"/>
+                                        <constraint firstItem="Qo1-GE-6s6" firstAttribute="leading" secondItem="FIk-tk-uik" secondAttribute="trailing" constant="10" id="dur-8q-Oyf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Qo1-GE-6s6" secondAttribute="trailing" id="ras-Do-RTp"/>
+                                        <constraint firstItem="Qo1-GE-6s6" firstAttribute="top" secondItem="zA3-jP-YPC" secondAttribute="topMargin" constant="10" id="sqd-Kk-ymF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
