@@ -80,6 +80,17 @@ class MemoFormVC: UIViewController{
         self.memo.text = ""
     }
     
+    // 화면 터치에 반응하여 터치바가 토글되는 기능
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        
+        let ts = TimeInterval(0.3)
+        
+        UIView.animate(withDuration: ts) {
+            bar?.alpha = (bar?.alpha == 0 ? 1 : 0)
+        }
+    }
+    
 }
 
 // MARK: - 이미지 피커 컨트롤러 델리게이트
