@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MemoFormVC: UIViewController{
 
@@ -62,6 +63,21 @@ class MemoFormVC: UIViewController{
     
     override func viewDidLoad() {
         self.memo.delegate = self
+        
+        // 배경 이미지 설정
+        let bgImage = UIImage(named: "memo-background")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        // 배경이미지에 맞게 텍스트뷰의 기본속성 다듬어줌
+        self.memo.layer.borderWidth = 0
+        self.memo.layer.borderColor = UIColor.clear.cgColor
+        self.memo.backgroundColor = UIColor.clear
+        
+        // 줄 간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.memo.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedString.Key.paragraphStyle: style])
+        self.memo.text = ""
     }
     
 }
