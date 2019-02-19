@@ -84,4 +84,14 @@ class SideBarVC: UITableViewController{
         return cell
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            // 0버째 셀은 새글 작성 메뉴임, 즉 사용자가 새글작성 탭을 눌렀을 때
+            let uv = self.storyboard?.instantiateViewController(withIdentifier: "MemoForm")
+            let target = self.revealViewController()?.frontViewController as! UINavigationController
+            
+            target.pushViewController(uv!, animated: true)
+        }
+    }
 }
