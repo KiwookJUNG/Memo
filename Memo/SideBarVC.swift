@@ -92,6 +92,7 @@ class SideBarVC: UITableViewController{
             let target = self.revealViewController()?.frontViewController as! UINavigationController
             
             target.pushViewController(uv!, animated: true)
+            self.revealViewController()?.revealToggle(self)
         }
     }
 }
