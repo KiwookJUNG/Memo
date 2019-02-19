@@ -21,12 +21,12 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationItem.title = "프로필"
         
         // 1. 프로필 사진에 들어갈 기본 이미지
-        let image = UIImage(named: "acoount.jpg")
+        let image = UIImage(named: "account.jpg")
         
         // 2. 프로필 이미지 처리
         self.profileImage.image = image
         self.profileImage.frame.size = CGSize(width: 100, height: 100)
-        self.profileImage.center = CGPoint(x: self.view.frame.width / 2, y: 130)
+        self.profileImage.center = CGPoint(x: self.view.frame.width / 2, y: 270)
         
         // 3. 프로필 이미지 둥글게 만들기
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
@@ -44,10 +44,29 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tv.dataSource = self
         self.tv.delegate = self
         
+        self.view.addSubview(self.tv)
+        
         
         // 뒤로 가기 버튼 처리
         let backBtn = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(close(_:)))
         self.navigationItem.leftBarButtonItem = backBtn
+        
+        let bg = UIImage(named: "profile-bg") // 이미지를
+        let bgImg = UIImageView(image: bg) // 이미지뷰에 넣어줌
+        
+        bgImg.frame.size = CGSize(width: bgImg.frame.size.width, height: bgImg.frame.size.height)
+        bgImg.center = CGPoint(x: self.view.frame.width / 2, y: 40)
+        
+        bgImg.layer.cornerRadius = bgImg.frame.size.width / 2
+        bgImg.layer.borderWidth = 0
+        bgImg.layer.masksToBounds = true
+        self.view.addSubview(bgImg)
+        
+        self.view.bringSubviewToFront(self.tv)
+        self.view.bringSubviewToFront(self.profileImage)
+        
+        // 내비게이션 바 숨김처리
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
