@@ -27,6 +27,9 @@ class MemoListVC: UITableViewController {
             
             // 정의된 바 버튼을 내비게이션 바의 왼쪽 아이템으로 등록한다.
             self.navigationItem.leftBarButtonItem = btn
+            
+            // 제스처 객체를 뷰에 추가한다.
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
         }
     }
     
