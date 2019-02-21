@@ -132,7 +132,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let passwd = loginAlert.textFields?[1].text ?? "" // 두 번째 필드 : 비밀 번호
             
             if self.uinfo.login(account: account, passwd: passwd){
-                // 로그인 성공 시 처리할 내용이 여기에 들어갈 예정입니다.
+                self.tv.reloadData() // 테이블 뷰를 갱신한다.
+                self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
                 
             } else {
                 let msg = "로그인에 실패하였습니다."
@@ -152,7 +153,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { (_) in
             if self.uinfo.logout() {
-                // 로그 아웃시 처리할 내용이 여기 들어간다.
+               self.tv.reloadData() // 테이블 뷰를 갱신한다.
+               self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
             }
             }))
         
