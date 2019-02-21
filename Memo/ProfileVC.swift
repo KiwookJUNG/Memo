@@ -160,4 +160,35 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.present(alert, animated: false)
     }
+    
+    func drawBtn() {
+        // 버튼을 감쌀 뷰를 정의한다.
+        let v = UIView()
+        v.frame.size.width = self.view.frame.width
+        v.frame.size.height = 40
+        v.frame.origin.x = 0
+        v.frame.origin.y = self.tv.frame.origin.y + self.tv.frame.height
+        v.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+        
+        self.view.addSubview(v)
+        
+        // 버튼을 정의한다.
+        let btn = UIButton(type: .system)
+        btn.frame.size.width = 100
+        btn.frame.size.height = 30
+        btn.center.x = v.frame.size.width / 2
+        btn.center.y = v.frame.size.height / 2
+        
+        // 로그인 상태일 때는 로그아웃 버튼을, 로그아웃 상태일 때에는 로그인 버튼을 만들어준다.
+        if self.uinfo.isLogin == true {
+            btn.setTitle("로그아웃", for: .normal)
+            btn.addTarget(self, action: #selector(doLogout(_:)), for: .touchUpInside)
+        } else {
+            btn.setTitle("로그인", for: .normal)
+            btn.addTarget(self, action: #selector(doLogin(_:)), for: .touchUpInside)
+        }
+        v.addSubview(btn)
+        
+        
+    }
 }
