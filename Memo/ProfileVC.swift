@@ -133,4 +133,18 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.present(loginAlert, animated: false)
     }
+    
+    @objc func doLogout(_ sender: Any) {
+        let msg = "로그아웃을 하시겠습니까?"
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        alert.addAction(UIAlertAction(title: "확인", style: .destructive, handler: { (_) in
+            if self.uinfo.logout() {
+                // 로그 아웃시 처리할 내용이 여기 들어간다.
+            }
+            }))
+        
+        self.present(alert, animated: false)
+    }
 }
