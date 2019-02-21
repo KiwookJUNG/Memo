@@ -101,4 +101,14 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
         
         return self.getContentVC(atIndex: index)
     }
+    
+    
+    // 페이지 인디케이터를 화면에 출력하기 위해서, 페이지 뷰 컨트롤러가 출력할 페이지가 모두 몇개 인지
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return self.contentTitles.count // 출력할 페이지의 개수
+    }
+    // 맨 처음에 선택되어 있을 페이지 정보를 알려줘야함
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0 // 최초에 출력할 콘텐츠 뷰의 인덱스 번호
+    }
 }
