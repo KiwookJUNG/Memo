@@ -18,6 +18,16 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
     var contentTitles = ["STEP 1", "STEP 2", "STEP 3", "STPE 4"]
     var contentImages = ["Page0", "Page1", "Page2", "Page3"]
     
+    @IBAction func close(_ sender: Any) {
+        let ud = UserDefaults.standard
+        ud.set(true, forKey: UserInfoKey.tutorial)
+        ud.synchronize()
+        
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         // 1. 페이지 뷰 컨트롤러 객체 생성하기
         self.pageVC = self.instanceTutorialVC(name: "PageVC") as! UIPageViewController
