@@ -73,6 +73,10 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         self.navigationController?.navigationBar.isHidden = true
         
         self.drawBtn()  // 최초 화면 로딩 시 로그인 상태에 따라 적절히 로그인/ 로그아웃 버튼을 출력한다.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
+        self.profileImage.addGestureRecognizer(tap)
+        self.profileImage.isUserInteractionEnabled = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -240,6 +244,16 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         // 액션 시트 창 실행
         self.present(alert, animated: true)
+    }
+    
+    // 이미지를 선택하면 이 메소드가 자동으로 호출된다
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.uinfo.profile = img
+            self.profileImage.image = img
+    }
+        // 이 구문을 누락하면 이미지 피커 컨트롤러 창은 닫히지 않음
+        picker.dismiss(animated: true)
     }
 }
