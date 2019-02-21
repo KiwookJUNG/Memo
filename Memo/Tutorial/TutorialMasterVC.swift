@@ -18,6 +18,32 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
     var contentTitles = ["STEP 1", "STEP 2", "STEP 3", "STPE 4"]
     var contentImages = ["Page0", "Page1", "Page2", "Page3"]
     
+    override func viewDidLoad() {
+        // 1. 페이지 뷰 컨트롤러 객체 생성하기
+        self.pageVC = self.instanceTutorialVC(name: "PageVC") as! UIPageViewController
+        self.pageVC.dataSource = self // 생성된 인스턴스의 dataSource 속성은 self로 설정하여, 데이터 소스 구성에
+        // 필요한 메소드가 현재의 클래스 인스턴스 자신에게 구현되어 있다는 것을 알려준다.
+        
+        // 2. 페이지 뷰 컨트롤러의 기본 페이지 지정
+        let startContentVC = self.getContentVC(atIndex: 0)! // 최초 노출될 콘텐츠 뷰 컨트롤러
+        self.pageVC.setViewControllers([startContentVC], direction: .forward, animated: true)
+        // 페이지 뷰 컨트롤러가 실행되면 사용자의 스와이프 액션이 있기 전까지 임의의 콘텐츠 뷰를 기본 값으로 출력하고 있어야함
+        // 이 기본 값은 위의 두번째 줄의 메소드로 실행할 수 있음.
+        
+        
+        // 3. 페이지 뷰 컨트롤러의 출력 영역 지정
+        // 페이지 뷰 컨트롤러는 현재의 Master 클래스 화면 위에 표시되므로, 우리는 페이지 뷰 컨트롤러가 출력된 영역을 지정해줘야함
+        // 페이지 뷰 컨트롤러와 그의 콘텐츠 뷰들이 화면 상단부터 빼곡히 채우도록 기준 좌표 0,0으로하고 높이를 적절히 지정해줌
+        self.pageVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        self.pageVC.view.frame.size.width = self.view.frame.width
+        self.pageVC.view.frame.size.height = self.view.frame.height - 50
+        
+        // 4. 페이지 뷰 컨트롤러를 마스터 뷰 컨트롤러의 자식 뷰 컨트롤러로 설정
+        self.addChild(self.pageVC) // 페이지 뷰 컨트롤러를 마스터의 자식으로 등록
+        self.view.addSubview(self.pageVC.view) // 그 컨트롤러의 뷰 또한 서브뷰로 등록
+        self.pageVC.didMove(toParent: self) // 자식 뷰 컨트롤러에게 부모 뷰 컨트롤러가 바뀌었음을 알려줌.
+    }
+    
     func getContentVC(atIndex idx: Int) -> UIViewController? {
         // 인덱스가 데이터 배열 크기 범위를 벗어나면 nil 반환
         guard self.contentTitles.count >= idx && self.contentTitles.count > 0 else {
