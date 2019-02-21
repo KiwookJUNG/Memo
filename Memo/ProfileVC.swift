@@ -100,6 +100,14 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.uinfo.isLogin == false {
+            // 로그인 되어있지 않으면 로그인 창을 띄워 준다.
+            self.doLogin(self.tv)
+        }
+    }
+    
+    
     @objc func close(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
