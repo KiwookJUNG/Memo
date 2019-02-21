@@ -24,7 +24,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationItem.title = "프로필"
         
         // 1. 프로필 사진에 들어갈 기본 이미지
-        let image = UIImage(named: "account.jpg")
+        //let image = UIImage(named: "account.jpg")
+        let image = self.uinfo.profile // 프로필 사진 역시 공용저장소에서 받아온다.
         
         // 2. 프로필 이미지 처리
         self.profileImage.image = image
