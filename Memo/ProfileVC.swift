@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
     
@@ -192,7 +192,54 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         v.addSubview(btn)
+    }
+    
+    
+    // 이미지 피커를 실행할 커스텀 메소드
+    func imgPicker(_ source : UIImagePickerController.SourceType) {
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true)
+    }
+    
+    // 프로필 메소드 ( 메소드가 호출되면 먼저 이미지 소스 타입을 선택하는 액션 시트 창이 나타나고, 여기서 선택한 소스 타입이 imgPicker의 인자 값으로 사용되도록 해준다.
+    @objc func profile(_ sender : UIButton){
+        // 로그인되어있지 않을 경우에는 프로필 이미지 등록을 막고 대신 로그인 창을 띄워 준다.
+        guard self.uinfo.account != nil else {
+            self.doLogin(self)
+            return
+        }
         
+        let alert = UIAlertController(title: nil, message: "사진을 가져올 곳을 선택해주세요", preferredStyle: .actionSheet)
+        
+        // 카메라를 사용할 수 있으면
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            alert.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
+                self.imgPicker(.camera)
+            }))
+        }
+        
+        // 저장된 앨범을 사용할 수 있으면
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            alert.addAction(UIAlertAction(title: "저장된 앨범", style: .default, handler: { (_) in
+                self.imgPicker(.savedPhotosAlbum)
+            }))
+        }
+        
+        // 포토 라이브러리를 사용할 수 있으면
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alert.addAction(UIAlertAction(title: "포토 라이브러리", style: .default, handler: { (_) in
+                self.imgPicker(.photoLibrary)
+            }))
+        }
+        
+        // 취소 버튼 추가
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        // 액션 시트 창 실행
+        self.present(alert, animated: true)
         
     }
 }
