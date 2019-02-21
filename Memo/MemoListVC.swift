@@ -67,6 +67,17 @@ class MemoListVC: UITableViewController {
     // 디바이스 스크린 뷰 컨트롤러가 나타날 때마다 호출되는 메소드
     // 즉 새로고침 역할
     override func viewWillAppear(_ animated: Bool) {
+        
+        // MemoListVC 클래스는 앱을 실행했을때 가장 처음 진입하게 되는 뷰 컨트롤러
+        // 따라서 이 뷰 컨트롤러가 로드되는 시점에 TUTORIAL이라는 키로 프로퍼티 리스트에 저장되어있는 값이 있는지 찾아보고
+        // 이 값이 없다면 튜토리얼을 띄워줘야한다.
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorialVC(name: "MasterVC")
+            self.present(vc!, animated: false)
+            return
+        }
+        
         // 테이블 데이터를 다시 읽어 들인다. 이에 따라 행을 구성하는 로직이 다시 실행됨.
         self.tableView.reloadData()
     }
