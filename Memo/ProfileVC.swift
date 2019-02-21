@@ -71,6 +71,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         // 내비게이션 바 숨김처리
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.drawBtn()  // 최초 화면 로딩 시 로그인 상태에 따라 적절히 로그인/ 로그아웃 버튼을 출력한다.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -134,7 +136,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if self.uinfo.login(account: account, passwd: passwd){
                 self.tv.reloadData() // 테이블 뷰를 갱신한다.
                 self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
-                
+                self.drawBtn() // 로그인 상태일때 로그아웃 버튼 출력
             } else {
                 let msg = "로그인에 실패하였습니다."
                 let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
@@ -155,6 +157,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if self.uinfo.logout() {
                self.tv.reloadData() // 테이블 뷰를 갱신한다.
                self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
+               self.drawBtn() // 로그아웃 일때 버튼 출력
             }
             }))
         
@@ -187,6 +190,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             btn.setTitle("로그인", for: .normal)
             btn.addTarget(self, action: #selector(doLogin(_:)), for: .touchUpInside)
         }
+        
         v.addSubview(btn)
         
         
