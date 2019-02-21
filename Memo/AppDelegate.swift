@@ -18,6 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        // 페이지 인디케이터 설정을 위한 외형 템플릿 구문
+        let pageControl = UIPageControl.appearance() // appearance()는 특정 타입 객체에 대한 외형
+        // 속성을 일괄로 설정할 수 있도록 외형 템플릿 객체를 반환하는 메소드
+        pageControl.pageIndicatorTintColor = UIColor.lightGray // 전체 색상 회색
+        pageControl.currentPageIndicatorTintColor = UIColor.black // 현재 선택된 인디케이터 검은색
+        pageControl.backgroundColor = UIColor.white // 배경 흰색
+        
         return true
     }
 
