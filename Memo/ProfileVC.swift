@@ -9,6 +9,9 @@
 import UIKit
 
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let uinfo = UserInfoManager() // 개인 정보 관리 매니저
+    
     // 테이블 뷰가 사용되긴 했지만, 테이블 뷰 컨트롤러는 아니다
     // 따라서 테이블 뷰를 위한 프로토콜을 직접 추가해 주어야 우리가 원하는 테이블 뷰를 구현할 수 있다.
     // UITableViewDelegate는 테이블 뷰에서 발생하는 사용자 액션에 응답하기 위한 프로토콜
@@ -97,5 +100,37 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func close(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    @objc func doLogin(_ sender: Any) {
+        let loginAlert = UIAlertController(title: "LOGIN", message: nil, preferredStyle: .alert)
+        
+        // 알림창에 들어갈 입력폼 추가
+        loginAlert.addTextField { (tf) in
+            tf.placeholder = "Your Account"
+        }
+        loginAlert.addTextField { (tf) in
+            tf.placeholder = "Password"
+            tf.isSecureTextEntry = true
+        }
+        
+        // 알림창 버튼 추가
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        loginAlert.addAction(UIAlertAction(title: "Login", style: .destructive, handler: { (_) in
+            let account = loginAlert.textFields?[0].text ?? "" // 첫 번째 필드 : 계정
+            let passwd = loginAlert.textFields?[1].text ?? "" // 두 번째 필드 : 비밀 번호
+            
+            if self.uinfo.login(account: account, passwd: passwd){
+                // 로그인 성공 시 처리할 내용이 여기에 들어갈 예정입니다.
+                
+            } else {
+                let msg = "로그인에 실패하였습니다."
+                let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                self.present(alert, animated: false)
+            }
+        }))
+        
+        self.present(loginAlert, animated: false)
     }
 }
