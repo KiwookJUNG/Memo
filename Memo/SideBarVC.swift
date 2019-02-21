@@ -10,6 +10,10 @@ import UIKit
 
 class SideBarVC: UITableViewController{
 
+    let uinfo = UserInfoManager()
+    // 유저정보를 갱신해주기 위해 객체 인스턴스 할당
+    
+    
     let nameLabel = UILabel() // 이름 레이블
     let emailLabel = UILabel() // 이메일 레이블
     let profileImage = UIImageView() // 프로필 이미지
@@ -38,7 +42,7 @@ class SideBarVC: UITableViewController{
         
         // 이름 레이블의 속성을 정의하고, 헤더 뷰에 추가한다.
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "오늘 눈온다"
+        //self.nameLabel.text = "오늘 눈온다"
         self.nameLabel.textColor = UIColor.white // 텍스트 색상
         self.nameLabel.font = UIFont.boldSystemFont(ofSize: 15) // 폰트 사이즈
         self.nameLabel.backgroundColor = UIColor.clear // 배경 색상
@@ -48,15 +52,15 @@ class SideBarVC: UITableViewController{
         // 이메일 레이블의 속성을 정의하고, 헤더 뷰에 추가한다.
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30) // 위치와 크기를 정의
         
-        self.emailLabel.text = "rldnr56@me.com" // 기본 텍스트
+        //self.emailLabel.text = "rldnr56@me.com" // 기본 텍스트
         self.emailLabel.textColor = UIColor.white
         self.emailLabel.font = UIFont.systemFont(ofSize: 11)
         self.emailLabel.backgroundColor = UIColor.clear // 배경 색상
         
         headerView.addSubview(self.emailLabel) // 헤더 뷰에 추가
         
-        let defaultProfile = UIImage(named: "account.jpg")
-        self.profileImage.image = defaultProfile // 이미지 등록
+        //let defaultProfile = UIImage(named: "account.jpg")
+        //self.profileImage.image = defaultProfile // 이미지 등록
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50) // 위치와 크기를 정의
         
         self.profileImage.layer.cornerRadius = (self.profileImage.frame.width / 2) // 반원 형태로 라운딩
@@ -66,6 +70,19 @@ class SideBarVC: UITableViewController{
         view.addSubview(self.profileImage) // 헤더 뷰에 추가
         
     }
+    
+    // 사이드 바가 화면에 표시될 때마다 로그인 정보를 읽어와 갱신하도록 해준다.
+    // viewWillAppear은 화면이 표시 될 때마다 호출되는 메소드이다.
+    // SWReavealViewController 라이브러리에 의해 관리되는 사이드 바는
+    // 닫히고 난 다음에도 사라지지 않고 그대로 메모리에 유지되기 떄문에, viewDidLoad 메소드에
+    // 위 내용을 작성해 놓으면 로그인/로그아웃 후에도 화면이 갱신되지 않는 문제가 생긴다.
+    // 따라서 viewWillAppear에 작성해야한다.
+    override func viewWillAppear(_ animated: Bool) {
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
+    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.titles.count
@@ -101,4 +118,5 @@ class SideBarVC: UITableViewController{
             }
         }
     }
+    
 }
