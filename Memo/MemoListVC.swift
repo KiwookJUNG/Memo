@@ -14,6 +14,8 @@ class MemoListVC: UITableViewController {
     // 앱델리게이트에 저장된 메모가 필요하다
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    lazy var dao = MemoDAO() // 클래스 내부에 MemoDAO 타입의 프로퍼티 추가.
+    
 
     override func viewDidLoad() {
         //SWRevealViewController 라이브러리의 revealViewController 객체를 읽어온다.
@@ -77,6 +79,9 @@ class MemoListVC: UITableViewController {
             self.present(vc!, animated: false)
             return
         }
+        
+        // 코어 데이터에 저장된 데이터를 가져온다.
+        self.appDelegate.memolist = self.dao.fetch()
         
         // 테이블 데이터를 다시 읽어 들인다. 이에 따라 행을 구성하는 로직이 다시 실행됨.
         self.tableView.reloadData()
