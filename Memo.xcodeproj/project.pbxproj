@@ -33,6 +33,12 @@
 		A0AED6DB221BA8D30043BB0A /* account@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0AED6D2221BA8D20043BB0A /* account@2x.jpg */; };
 		A0AED6DD221BABE90043BB0A /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED6DC221BABE90043BB0A /* SideBarVC.swift */; };
 		A0AED6DF221BB83D0043BB0A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AED6DE221BB83D0043BB0A /* ProfileVC.swift */; };
+		A0D02DBF221E7D3D003022B6 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D02DBE221E7D3D003022B6 /* UserInfoManager.swift */; };
+		A0D02DC1221EA85F003022B6 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D02DC0221EA85F003022B6 /* Tutorial.storyboard */; };
+		A0D02DC3221EAE10003022B6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D02DC2221EAE10003022B6 /* Utils.swift */; };
+		A0D02DC5221EB095003022B6 /* TutorialContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D02DC4221EB095003022B6 /* TutorialContentsVC.swift */; };
+		A0D02DC8221EB443003022B6 /* TutorialMasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D02DC7221EB443003022B6 /* TutorialMasterVC.swift */; };
+		A0FBAF1A222A624F00B47D10 /* MemoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FBAF19222A624F00B47D10 /* MemoDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +73,12 @@
 		A0AED6D2221BA8D20043BB0A /* account@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "account@2x.jpg"; sourceTree = "<group>"; };
 		A0AED6DC221BABE90043BB0A /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 		A0AED6DE221BB83D0043BB0A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		A0D02DBE221E7D3D003022B6 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		A0D02DC0221EA85F003022B6 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		A0D02DC2221EAE10003022B6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A0D02DC4221EB095003022B6 /* TutorialContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsVC.swift; sourceTree = "<group>"; };
+		A0D02DC7221EB443003022B6 /* TutorialMasterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMasterVC.swift; sourceTree = "<group>"; };
+		A0FBAF19222A624F00B47D10 /* MemoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +112,13 @@
 		A06DD7AF2212C4E90028B332 /* Memo */ = {
 			isa = PBXGroup;
 			children = (
+				A0D02DC6221EB0C5003022B6 /* Tutorial */,
 				A06DD7B02212C4EA0028B332 /* AppDelegate.swift */,
 				A0AED6C7221BA8650043BB0A /* SWRevealViewController.h */,
 				A0AED6C8221BA8650043BB0A /* SWRevealViewController.m */,
 				A06DD7B42212C4EA0028B332 /* Main.storyboard */,
 				A095DCF02213F4B700384BE6 /* MemoData.swift */,
+				A0FBAF19222A624F00B47D10 /* MemoDAO.swift */,
 				A095DCEE2213F3EC00384BE6 /* MemoCell.swift */,
 				A06DD7BA2212C4EA0028B332 /* Assets.xcassets */,
 				A06DD7BC2212C4EA0028B332 /* LaunchScreen.storyboard */,
@@ -114,6 +128,7 @@
 				A06A44F4221924C9009F4BF4 /* CSLogButton.swift */,
 				A095DCEA2213F35700384BE6 /* MemoListVC.swift */,
 				A0AED6DC221BABE90043BB0A /* SideBarVC.swift */,
+				A0D02DBE221E7D3D003022B6 /* UserInfoManager.swift */,
 				A0AED6DE221BB83D0043BB0A /* ProfileVC.swift */,
 				A095DCEC2213F36D00384BE6 /* MemoReadVC.swift */,
 				A0AED6C6221BA8640043BB0A /* Memo-Bridging-Header.h */,
@@ -139,6 +154,17 @@
 				A06A44F9221928B1009F4BF4 /* warning-icon-60@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0D02DC6221EB0C5003022B6 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				A0D02DC4221EB095003022B6 /* TutorialContentsVC.swift */,
+				A0D02DC2221EAE10003022B6 /* Utils.swift */,
+				A0D02DC7221EB443003022B6 /* TutorialMasterVC.swift */,
+				A0D02DC0221EA85F003022B6 /* Tutorial.storyboard */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +240,7 @@
 				A06DD7B62212C4EA0028B332 /* Main.storyboard in Resources */,
 				A0AED6DB221BA8D30043BB0A /* account@2x.jpg in Resources */,
 				A0AED6D3221BA8D30043BB0A /* icon06.png in Resources */,
+				A0D02DC1221EA85F003022B6 /* Tutorial.storyboard in Resources */,
 				A0AED6DA221BA8D30043BB0A /* sidemenu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,13 +254,18 @@
 			files = (
 				A06A44F5221924C9009F4BF4 /* CSLogButton.swift in Sources */,
 				A06DD7B92212C4EA0028B332 /* Memo.xcdatamodeld in Sources */,
+				A0D02DBF221E7D3D003022B6 /* UserInfoManager.swift in Sources */,
 				A095DCED2213F36D00384BE6 /* MemoReadVC.swift in Sources */,
 				A095DCE92213F33A00384BE6 /* MemoFormVC.swift in Sources */,
+				A0D02DC3221EAE10003022B6 /* Utils.swift in Sources */,
 				A095DCF12213F4B700384BE6 /* MemoData.swift in Sources */,
 				A0AED6DD221BABE90043BB0A /* SideBarVC.swift in Sources */,
+				A0D02DC5221EB095003022B6 /* TutorialContentsVC.swift in Sources */,
 				A0AED6C9221BA8650043BB0A /* SWRevealViewController.m in Sources */,
+				A0FBAF1A222A624F00B47D10 /* MemoDAO.swift in Sources */,
 				A095DCEB2213F35700384BE6 /* MemoListVC.swift in Sources */,
 				A06DD7B12212C4EA0028B332 /* AppDelegate.swift in Sources */,
+				A0D02DC8221EB443003022B6 /* TutorialMasterVC.swift in Sources */,
 				A0AED6DF221BB83D0043BB0A /* ProfileVC.swift in Sources */,
 				A095DCEF2213F3EC00384BE6 /* MemoCell.swift in Sources */,
 			);
