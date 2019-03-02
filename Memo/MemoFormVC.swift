@@ -13,9 +13,12 @@ class MemoFormVC: UIViewController{
 
     var subject : String!
     
+    lazy var dao = MemoDAO()
+    
     @IBOutlet var memo: UITextView!
     
     @IBOutlet var preview: UIImageView!
+    
     
     @IBAction func save(_ sender: Any) {
         
@@ -44,15 +47,19 @@ class MemoFormVC: UIViewController{
         data.image = self.preview.image
         data.regdate = Date()
         
-        // 앱 델리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가한다.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // 클래스 타입이 무엇이든지 주어진 조건(UIApplicationDelegate 프로토콜 구현, @UIApplicationMain)
-        // 을 만족하면 앱 델리게이트가 될 수 있기 때문에, 프로토콜 타입으로 객체를 반환해줌.
-        // 즉, UIApplication.shared.delegate는 이들 클래스의 공통 분모인 UIApplicationDelegate 프로토콜 타입으로
-        // 객체를 반환하므로 AppDelegate 로 타입 캐스팅을 해줘야한다.
-        appDelegate.memolist.append(data)
-        // memolist는 AppDelegate에 선언 해준 '구조체'이기 떄문에 직접 참조하지 않고 복사값을 전달하면
-        // 복사값에만 값이 저장되므로 직접 적으로 참조해서 값을 추가해줘야함.
+//        // 앱 델리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가한다.
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        // 클래스 타입이 무엇이든지 주어진 조건(UIApplicationDelegate 프로토콜 구현, @UIApplicationMain)
+//        // 을 만족하면 앱 델리게이트가 될 수 있기 때문에, 프로토콜 타입으로 객체를 반환해줌.
+//        // 즉, UIApplication.shared.delegate는 이들 클래스의 공통 분모인 UIApplicationDelegate 프로토콜 타입으로
+//        // 객체를 반환하므로 AppDelegate 로 타입 캐스팅을 해줘야한다.
+//        appDelegate.memolist.append(data)
+//        // memolist는 AppDelegate에 선언 해준 '구조체'이기 떄문에 직접 참조하지 않고 복사값을 전달하면
+//        // 복사값에만 값이 저장되므로 직접 적으로 참조해서 값을 추가해줘야함.
+        
+        
+        // 코어 데이터에 메모 데이터를 추가한다.
+        self.dao.insert(data)
         
         // 작성폼 화면을 종료하고, 이전 화면으로 되돌아간다.
         _ = self.navigationController?.popViewController(animated: true)
